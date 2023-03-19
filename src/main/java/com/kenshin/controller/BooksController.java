@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/books")
 public class BooksController {
 
     @Autowired
@@ -36,7 +37,7 @@ public class BooksController {
         Book book = bookService.getBookById(id);
         Integer code = book != null ? Code.GET_OK : Code.GET_ERR;
         String msg = book != null ? "" : "数据传输失败，请重试！";
-        return new Result(Code.GET_OK, book, msg);
+        return new Result(code, book, msg);
     }
 
     @GetMapping
@@ -44,6 +45,6 @@ public class BooksController {
         List<Book> books = bookService.getAllBook();
         Integer code = books != null ? Code.GET_OK : Code.GET_ERR;
         String msg = books != null ? "" : "数据传输失败，请重试！";
-        return new Result(Code.GET_OK, books, msg);
+        return new Result(code, books, msg);
     }
 }
