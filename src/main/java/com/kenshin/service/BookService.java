@@ -1,9 +1,11 @@
 package com.kenshin.service;
 
 import com.kenshin.domain.Book;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Transactional
 public interface BookService {
 
     /**
