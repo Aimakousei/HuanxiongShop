@@ -17,17 +17,17 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public boolean addBook(Book book) {
-        return bookDao.addBook(book);
+        return bookDao.addBook(book) > 0;
     }
 
     @Override
     public boolean deleteBook(Integer id) {
-        return bookDao.deleteBook(id);
+        return bookDao.deleteBook(id) > 0;
     }
 
     @Override
     public boolean updateBook(Book book) {
-        return bookDao.updateBook(book);
+        return bookDao.updateBook(book) > 0;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class BookServiceImpl implements BookService {
         try {
             return bookDao.getBook(id);
         } catch (Exception e) {
-            throw new SystemException(Code.BUSINESS_ERR,"服务器访问超时",e);
+            throw new SystemException(Code.BUSINESS_ERR, "服务器访问超时", e);
         }
     }
 
