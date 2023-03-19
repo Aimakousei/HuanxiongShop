@@ -29,7 +29,7 @@ public interface BookService {
      * @param id
      * @return
      */
-    public Book getBook(Integer id);
+    public Book getBookById(Integer id);
 
     /**
      * 获取全部

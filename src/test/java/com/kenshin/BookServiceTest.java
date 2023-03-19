@@ -39,8 +39,8 @@ public class BookServiceTest {
 
     @Test
     public void getBookTest(){
-        System.out.println(bookService.getBook(1));
-        System.out.println(bookService.getBook(3));
+        System.out.println(bookService.getBookById(1));
+        System.out.println(bookService.getBookById(3));
     }
 
     @Test

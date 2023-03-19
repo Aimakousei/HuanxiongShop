@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book getBook(Integer id) {
+    public Book getBookById(Integer id) {
         return bookDao.getBook(id);
     }
 
