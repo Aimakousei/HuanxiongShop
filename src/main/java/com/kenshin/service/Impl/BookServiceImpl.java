@@ -1,7 +1,9 @@
 package com.kenshin.service.Impl;
 
+import com.kenshin.controller.Code;
 import com.kenshin.dao.BookDao;
 import com.kenshin.domain.Book;
+import com.kenshin.exception.SystemException;
 import com.kenshin.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book getBookById(Integer id) {
-        return bookDao.getBook(id);
+        try {
+            return bookDao.getBook(id);
+        } catch (Exception e) {
+            throw new SystemException(Code.BUSINESS_ERR,"服务器访问超时",e);
+        }
     }
 
     @Override

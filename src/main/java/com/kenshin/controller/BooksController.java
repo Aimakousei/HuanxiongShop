@@ -36,7 +36,7 @@ public class BooksController {
     public Result getById(@PathVariable Integer id) {
         Book book = bookService.getBookById(id);
         Integer code = book != null ? Code.GET_OK : Code.GET_ERR;
-        String msg = book != null ? "" : "数据传输失败，请重试！";
+        String msg = book != null ? "" : "数据为空，请重新输入！";
         return new Result(code, book, msg);
     }
 
