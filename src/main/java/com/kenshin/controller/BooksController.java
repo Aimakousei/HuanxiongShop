@@ -23,13 +23,13 @@ public class BooksController {
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id) {
         boolean flag = bookService.deleteBook(id);
-        return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
+        return new Result(flag ? Code.DELETE_OK : Code.DELETE_OK, flag);
     }
 
     @PutMapping
     public Result update(@RequestBody Book book) {
         boolean flag = bookService.updateBook(book);
-        return new Result(flag ? Code.SAVE_OK : Code.SAVE_ERR, flag);
+        return new Result(flag ? Code.UPDATE_OK : Code.UPDATE_ERR, flag);
     }
 
     @GetMapping("/{id}")
